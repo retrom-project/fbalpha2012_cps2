@@ -257,6 +257,12 @@ static INT32 ScanRam(void)
    ba.nLen = 0x000100;
    ba.szName = "CpsReg";
    BurnAcb(&ba);
+   // Palette DMA latches colors independently of video RAM. Redraw after a
+   // restore rebuilds CpsPal from this copy, including in a fresh instance.
+   ba.Data = CpsSavePal;
+   ba.nLen = 0x002000;
+   ba.szName = "CpsSavePal";
+   BurnAcb(&ba);
 
    if (!Cps2DisableQSnd)
    {

@@ -1,2 +1,4 @@
 *.o
 *.so
+.retrom-build/
+__pycache__/
