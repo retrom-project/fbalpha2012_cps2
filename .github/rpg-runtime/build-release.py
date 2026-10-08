@@ -20,7 +20,7 @@ if not re.fullmatch(r"retrom-core-" + re.escape(baseline) + r"-r[1-9][0-9]*(?:-r
 commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
 archive = next(name for name in fork["releaseAssets"] if name.endswith("-wasm.data"))
 core = archive.removesuffix("-wasm.data")
-license_name = next(name for name in fork["releaseAssets"] if name in ("LICENSE", "COPYING", "LICENSE"))
+license_name = next(name for name in fork["releaseAssets"] if name in ("LICENSE", "COPYING", "LICENSE.md"))
 subprocess.run([str(ROOT / ".github/rpg-runtime/build-web.sh"), str(args.output)], check=True)
 expected = set(fork["releaseAssets"]) - {"rpg-runtime-release.json"}
 if {p.name for p in args.output.iterdir()} != expected:

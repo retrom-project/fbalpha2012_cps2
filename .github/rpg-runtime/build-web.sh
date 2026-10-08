@@ -36,7 +36,7 @@ install -m 0644 "$work/raw/fbalpha2012_cps2_libretro.js" "$stage/"
 install -m 0644 "$work/raw/fbalpha2012_cps2_libretro.wasm" "$stage/"
 install -m 0644 "$root/LICENSE" "$stage/license.txt"
 printf '%s\n' '{"minimumEJSVersion":"4.2.2","version":"2.0.2"}' > "$stage/build.json"
-printf '%s\n' '{"name":"fbalpha2012_cps2","extensions":["zip"],"makeoptions":{"buildpath":"./","makescript":"makefile.libretro","arguments":[]},"options":{},"save":false,"license":"LICENSE","repo":"https://github.com/retrom-project/fbalpha2012_cps2-libretro"}' > "$stage/core.json"
+printf '%s\n' '{"name":"fbalpha2012_cps2","extensions":["zip"],"makeoptions":{"buildpath":"./","makescript":"makefile.libretro","arguments":[]},"options":{},"save":false,"license":"LICENSE","repo":"https://github.com/retrom-project/fbalpha2012_cps2"}' > "$stage/core.json"
 
 (cd "$stage" && 7z a -mtm=off -mta=off -mtc=off -bd -bso0 -bsp0 -t7z "$output/fbalpha2012_cps2-wasm.data" \
   fbalpha2012_cps2_libretro.js fbalpha2012_cps2_libretro.wasm build.json core.json license.txt)
